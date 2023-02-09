@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bullet : DamageDataReciever
 {
-    [SerializeField] float speed;
-    [SerializeField] bool isPearcingShot;
-    float timer;
+    [SerializeField] protected float speed;
+    [SerializeField] protected bool isPearcingShot;
+    protected float timer;
     [SerializeField] float destroyTimer;
 
     // Start is called before the first frame update

@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    StatManager statManager;
+    protected StatManager statManager;
+    [SerializeField] Transform attackPos;
 
     void Start()
     {
         statManager = GetComponent<StatManager>();
+        if(attackPos == null)
+        {
+            attackPos = transform;
+        }
     }
 
     // Update is called once per frame
@@ -17,11 +22,14 @@ public class Attacker : MonoBehaviour
 
     }
 
-    public void UseAttack(int index)
+    public virtual void UseAttack(int index)
     {
-        GameObject prefab = Instantiate(statManager.CharacterData.Attacks[index], transform.position, Quaternion.identity);
+        GameObject prefab = Instantiate(statManager.CharacterData.Attacks[index], attackPos.position, Quaternion.identity);
         prefab.tag = transform.tag;
-        prefab.GetComponent<DamageDataReciever>().SetDamage(statManager.CharacterData.Damage);
+        if (prefab.GetComponent<DamageDataReciever>())
+        {
+            prefab.GetComponent<DamageDataReciever>().SetDamage(statManager.CharacterData.Damage);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

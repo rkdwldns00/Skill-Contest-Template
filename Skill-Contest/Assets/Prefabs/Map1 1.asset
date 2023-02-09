@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd34c302964690448762f70af49560e, type: 3}
+  m_Name: Map1 1
+  m_EditorClassIdentifier: 
+  backGround: {fileID: 8226652151471687705, guid: cdf5b2d3d4f20fa45bc9727a0453fb96, type: 3}
+  spawnData:
+  - timer: 3
+    timerRandomRange: 1
+    spawnPool:
+    - {fileID: 2832523759495202520, guid: b50e9d90b2f39db4fb53661db95bde8c, type: 3}
+  - timer: 3
+    timerRandomRange: 1.5
+    spawnPool:
+    - {fileID: 2832523759495202520, guid: 90d7dd3d590528c48a31ba015b0717ba, type: 3}
+    - {fileID: 8265892271199960637, guid: 04e8fbd8ff3712e49894ecb922cdedfb, type: 3}
+  - timer: 5
+    timerRandomRange: 2
+    spawnPool:
+    - {fileID: 7349171909505036777, guid: c67e7f7ae6eaaff4683f96ca0c9e04cb, type: 3}
+  - timer: 7
+    timerRandomRange: 2
+    spawnPool:
+    - {fileID: 5003526304802408849, guid: 08c4569fb5989c6499d6bdddb230c63b, type: 3}
+    - {fileID: 4310152401914824540, guid: 05c8d5a0a57fcf54fa1a176e0f187158, type: 3}
+  boss: {fileID: 9077837205438522042, guid: 79010ac6f03064b4f805df02b7e1b509, type: 3}
+  time: 10

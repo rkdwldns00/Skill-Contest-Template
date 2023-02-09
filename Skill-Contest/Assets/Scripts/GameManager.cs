@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static int lastScore;
     public static GameManager instance;
     //[SerializeField] GameObject[] backGroundPrefabs;
     [SerializeField] GameObject playerPrefab;
@@ -11,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] MapData[] mapData;
 
     float[] spawnTimer;
-    int mapIndex = -1;
+    public int mapIndex = -1;
     GameObject backGround;
     float bossSpawnTimer;
     bool isBossSpawned;
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
                 spawnTimer[i] -= Time.deltaTime;
                 if (spawnTimer[i] <= 0)
                 {
-                    Instantiate(spawnData[i].spawnPool[Random.Range(0, spawnData[i].spawnPool.Length)], new Vector2(Random.Range(-10f, 10f), 7), Quaternion.identity);
+                    Instantiate(spawnData[i].spawnPool[Random.Range(0, spawnData[i].spawnPool.Length)], new Vector2(Random.Range(-8f, 8f), 6), Quaternion.identity);
                     spawnTimer[i] = spawnData[i].timer + Random.Range(-spawnData[i].timerRandomRange, spawnData[i].timerRandomRange);
                 }
             }
@@ -89,6 +91,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("게임오버");
+        lastScore = Score;
+        SceneManager.LoadScene("GameOver");
     }
 
     public void AddScore(int score)
@@ -98,6 +102,11 @@ public class GameManager : MonoBehaviour
 
     public void ChangeMap()
     {
+        if(mapIndex == 1)
+        {
+            GameOver();
+            return;
+        }
         if (backGround != null) { Destroy(backGround); }
         if (mapData.Length - 1 > mapIndex)
         {
@@ -120,6 +129,11 @@ public class GameManager : MonoBehaviour
             {
                 Destroy(victim.gameObject);
             }
+            Bullet[] bullets = FindObjectsOfType<Bullet>();
+            foreach(Bullet b in bullets)
+            {
+                Destroy(b.gameObject);
+            }
 
             SpawnPlayer();
         }
@@ -127,6 +141,6 @@ public class GameManager : MonoBehaviour
 
     void SpawnPlayer()
     {
-        Instantiate(playerPrefab, new Vector2(0, -5), Quaternion.identity);
+        Instantiate(playerPrefab, new Vector2(0, -6), Quaternion.identity);
     }
 }

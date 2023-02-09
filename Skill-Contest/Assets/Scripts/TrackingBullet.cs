@@ -5,21 +5,36 @@ using UnityEngine;
 public class TrackingBullet : Bullet
 {
     Transform player;
-    float speed = 3;
 
     void Awake()
     {
-        player = FindObjectOfType<PlayerControll>().transform;
-        
+        if (!transform.CompareTag("Player"))
+        {
+            player = FindObjectOfType<PlayerControll>().transform;
+        }
+        else
+        {
+            Victim[] victims = FindObjectsOfType<Victim>();
+            float minDistance = 10000;
+            foreach(Victim victim in victims)
+            {
+                if(!victim.CompareTag("Player") && Vector2.Distance(transform.position, victim.transform.position) < minDistance)
+                {
+                    minDistance = Vector2.Distance(transform.position, victim.transform.position);
+                    player = victim.transform;
+                }
+            }
+        }
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        speed += Time.deltaTime;
-        transform.Translate(new Vector2(0, speed) * Time.deltaTime);
+        base.Update();
+        speed += Time.deltaTime * 2;
+        //transform.Translate(new Vector2(0, speed) * Time.deltaTime);
 
-        if (speed < 7 && player != null)
+        if (timer <= 3 && player != null)
         {
             Vector2 direction = player.position - transform.position;
             float digree = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

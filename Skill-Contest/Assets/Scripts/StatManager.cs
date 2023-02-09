@@ -7,14 +7,11 @@ public class StatManager : MonoBehaviour
     [SerializeField] CharacterData characterData;
     public CharacterData CharacterData { get { return characterData; } }
 
-    float[] buffTimer = new float[System.Enum.GetValues(typeof(BuffType)).Length];
+    float[] buffTimer;
 
     void Start()
     {
-        for (int i = 0; i < buffTimer.Length; i++)
-        {
-            buffTimer[i] = 0;
-        }
+        buffTimer = new float[System.Enum.GetValues(typeof(BuffType)).Length];
     }
 
     // Update is called once per frame
@@ -27,11 +24,11 @@ public class StatManager : MonoBehaviour
 
         if (GetBuff(BuffType.Flicker))
         {
-            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 175);
+            GetComponent<SpriteRenderer>().color = new Color(1,1,1,0.5f);
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+            GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
         }
     }
 
@@ -42,9 +39,11 @@ public class StatManager : MonoBehaviour
 
     public void AddBuff(BuffType type, float time)
     {
-        if (time > buffTimer[(int)type])
-        {
-            buffTimer[(int)type] = time;
-        }
+        buffTimer[(int)type] = Mathf.Max(time, buffTimer[(int)type]);
+    }
+
+    public void ClearBuff(BuffType type)
+    {
+        buffTimer[(int)type] = 0;
     }
 }

@@ -10,6 +10,12 @@ public abstract class DamageDataReciever : MonoBehaviour
         get { return damage; }
     }
 
+    public void SetDamage(int damage, Quaternion rotation)
+    {
+        this.damage = damage;
+        transform.rotation = rotation;
+    }
+
     public void SetDamage(int damage)
     {
         this.damage = damage;
@@ -23,7 +29,7 @@ public abstract class DamageDataReciever : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
-        { 
+        {
             transform.rotation = Quaternion.Euler(0, 0, 180);
         }
     }

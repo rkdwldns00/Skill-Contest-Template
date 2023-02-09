@@ -6,6 +6,7 @@ public class Victim : MonoBehaviour
 {
     StatManager statManager;
 
+    [SerializeField] bool isBoss;
     int hp;
     public virtual int Hp
     {
@@ -52,6 +53,10 @@ public class Victim : MonoBehaviour
         {
             FindObjectOfType<GameManager>().AddScore(statManager.CharacterData.Score);
         }
+        if (isBoss)
+        {
+            GameManager.instance.ChangeMap();
+        }
         Destroy(gameObject);
     }
 
@@ -62,8 +67,8 @@ public class Victim : MonoBehaviour
             Hp -= Mathf.Max(damage, 0);
             if(statManager != null && transform.CompareTag("Player"))
             {
-                statManager.AddBuff(BuffType.Immune, 1.5f);
-                statManager.AddBuff(BuffType.Flicker, 1.5f);
+                statManager.AddBuff(BuffType.Immune, 2);
+                statManager.AddBuff(BuffType.Flicker, 2);
             }
         }
     }

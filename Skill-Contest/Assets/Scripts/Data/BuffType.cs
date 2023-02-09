@@ -6,4 +6,6 @@ public enum BuffType
 {
     Immune,
     Flicker,
+    SecondaryShot,
+    SpeedUp
 }

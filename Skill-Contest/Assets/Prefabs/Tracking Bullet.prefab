@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5548387489950832215}
   - component: {fileID: -8388582673135548352}
   m_Layer: 0
-  m_Name: Bullet 1
+  m_Name: Tracking Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 478379934641084336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904ccd99fd9a2444c8d631739cf35510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 3
   isPearcingShot: 0
-  destroyTimer: 0
+  destroyTimer: 7
 --- !u!96 &-8388582673135548352
 TrailRenderer:
   serializedVersion: 2
@@ -177,8 +177,8 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.13285065
-        value: 0.2884617
+        time: 0.12882233
+        value: 0.124997795
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -199,8 +199,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0, b: 0, a: 1}
+      key1: {r: 1, g: 0.39628398, b: 0, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

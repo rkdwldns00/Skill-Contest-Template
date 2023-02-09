@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7749e7de61198b449896c1e3b802284, type: 3}
-  m_Name: Monster Data
+  m_Name: Monster B
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 10
   damage: 10
   score: 10
-  moveSpeed: 4
+  moveSpeed: 1
   attacks:
-  - {fileID: 478379934641084336, guid: 0c578e5bb3db026498161340e7c5ed7e, type: 3}
+  - {fileID: 642939399871663985, guid: e87cbd26f3f5e2d4a9b641a3c9b89b1d, type: 3}
