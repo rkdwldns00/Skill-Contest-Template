@@ -15,6 +15,11 @@ public class RigidMover : Mover
 
     public override void Move(Vector2 direction)
     {
+        if(rigid == null)
+        {
+            return;
+        }
+
         float speed = 1;
         if (statManager != null)
         {

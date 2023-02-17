@@ -55,6 +55,7 @@ public class Victim : MonoBehaviour
         }
         if (isBoss)
         {
+            isBoss = false;
             GameManager.instance.ChangeMap();
         }
         Destroy(gameObject);

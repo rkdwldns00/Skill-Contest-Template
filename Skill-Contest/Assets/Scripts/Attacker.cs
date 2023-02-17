@@ -5,26 +5,15 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     protected StatManager statManager;
-    [SerializeField] Transform attackPos;
 
     void Start()
     {
         statManager = GetComponent<StatManager>();
-        if(attackPos == null)
-        {
-            attackPos = transform;
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public virtual void UseAttack(int index)
     {
-        GameObject prefab = Instantiate(statManager.CharacterData.Attacks[index], attackPos.position, Quaternion.identity);
+        GameObject prefab = Instantiate(statManager.CharacterData.Attacks[index], transform.position, Quaternion.identity);
         prefab.tag = transform.tag;
         if (prefab.GetComponent<DamageDataReciever>())
         {

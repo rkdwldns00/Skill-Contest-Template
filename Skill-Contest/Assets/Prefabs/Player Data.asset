@@ -15,7 +15,7 @@ MonoBehaviour:
   hp: 100
   damage: 10
   score: 10
-  moveSpeed: 4
+  moveSpeed: 6
   attacks:
   - {fileID: 478379934641084336, guid: ca05bbe448e05c44997347c56549bf01, type: 3}
   - {fileID: 478379934641084336, guid: 68f6899e1de4b5b4cb15a7e5df86b1be, type: 3}

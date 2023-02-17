@@ -34,7 +34,7 @@ public class TrackingBullet : Bullet
         speed += Time.deltaTime * 2;
         //transform.Translate(new Vector2(0, speed) * Time.deltaTime);
 
-        if (timer <= 3 && player != null)
+        if (timer <= 2.5f && player != null)
         {
             Vector2 direction = player.position - transform.position;
             float digree = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5003526304802408047}
   - component: {fileID: 5003526304802408046}
   - component: {fileID: 5765308811715511016}
+  - component: {fileID: 8745032964812754195}
   m_Layer: 0
   m_Name: White Cell
   m_TagString: Monster
@@ -170,3 +171,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8745032964812754195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5003526304802408849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71687609e7eefc4a88a1bf3e0766088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: dca3410fe8817694aaabf638ff76b33f, type: 2}

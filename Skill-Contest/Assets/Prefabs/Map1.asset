@@ -29,10 +29,11 @@ MonoBehaviour:
     spawnPool:
     - {fileID: 8265892271199960637, guid: 04e8fbd8ff3712e49894ecb922cdedfb, type: 3}
     - {fileID: 7349171909505036777, guid: c67e7f7ae6eaaff4683f96ca0c9e04cb, type: 3}
-  - timer: 7
-    timerRandomRange: 2
+  - timer: 3
+    timerRandomRange: 1
     spawnPool:
+    - {fileID: 5003526304802408849, guid: 08c4569fb5989c6499d6bdddb230c63b, type: 3}
     - {fileID: 5003526304802408849, guid: 08c4569fb5989c6499d6bdddb230c63b, type: 3}
     - {fileID: 4310152401914824540, guid: 05c8d5a0a57fcf54fa1a176e0f187158, type: 3}
   boss: {fileID: 9077837205438522042, guid: 749cb0e529ae6964c83598f5b87919e7, type: 3}
-  time: 10
+  time: 60

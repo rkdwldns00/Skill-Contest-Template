@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7749e7de61198b449896c1e3b802284, type: 3}
   m_Name: Monster B
   m_EditorClassIdentifier: 
-  hp: 10
-  damage: 10
-  score: 10
-  moveSpeed: 1
+  hp: 50
+  damage: 15
+  score: 200
+  moveSpeed: 0.5
   attacks:
   - {fileID: 642939399871663985, guid: e87cbd26f3f5e2d4a9b641a3c9b89b1d, type: 3}

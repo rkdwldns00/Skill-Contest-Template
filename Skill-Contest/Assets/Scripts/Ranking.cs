@@ -55,7 +55,6 @@ public class Ranking : MonoBehaviour
                 names[i] = name;
                 break;
             }
-
         }
 
         for(int i = 0; i < scores.Length; i++)

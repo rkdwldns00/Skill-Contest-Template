@@ -22,14 +22,16 @@ public class StatManager : MonoBehaviour
             buffTimer[i] -= Time.deltaTime;
         }
 
+        Color color = GetComponent<SpriteRenderer>().color;
         if (GetBuff(BuffType.Flicker))
         {
-            GetComponent<SpriteRenderer>().color = new Color(1,1,1,0.5f);
+            color.a = 0.5f;
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+            color.a = 1f;
         }
+        GetComponent<SpriteRenderer>().color = color;
     }
 
     public bool GetBuff(BuffType type)

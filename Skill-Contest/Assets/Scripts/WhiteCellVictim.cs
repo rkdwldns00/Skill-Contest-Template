@@ -5,11 +5,16 @@ using UnityEngine;
 public class WhiteCellVictim : Victim
 {
     public GameObject[] itemPrefabs;
+    bool c = true;
 
     public override void Die()
     {
-        Instantiate(itemPrefabs[Random.Range(0, itemPrefabs.Length)], transform.position, Quaternion.identity);
-        base.Die();
+        if (c)
+        {
+            Instantiate(itemPrefabs[Random.Range(0, itemPrefabs.Length)], transform.position, Quaternion.identity);
+            c = false;
+        }
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static int lastScore;
     public static GameManager instance;
+    public static int difficult = 0;
     //[SerializeField] GameObject[] backGroundPrefabs;
     [SerializeField] GameObject playerPrefab;
     //[SerializeField] SpawnData[] spawnData;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
             hp = Mathf.Clamp(value, 0, 100);
             if (hp <= 0)
             {
+                Debug.Log("체력으로인한 게임오버");
                 GameOver();
             }
         }
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
             pain = Mathf.Clamp(value, 0, 100);
             if (pain >= 100)
             {
+                Debug.Log("고통게이지로인한 게임오버");
                 GameOver();
             }
         }
@@ -67,6 +70,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(bossSpawnTimer);
         bossSpawnTimer += Time.deltaTime;
         if (bossSpawnTimer <= CurrentMapData.Time)
         {
@@ -90,20 +94,20 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("게임오버");
         lastScore = Score;
         SceneManager.LoadScene("GameOver");
     }
 
     public void AddScore(int score)
     {
-        this.Score += score;
+        this.Score += score * ((6 + difficult) / 6);
     }
 
     public void ChangeMap()
     {
-        if(mapIndex == 1)
+        if (mapIndex == 1)
         {
+            Debug.Log("맵전환으로인한 게임오버");
             GameOver();
             return;
         }
@@ -123,6 +127,11 @@ public class GameManager : MonoBehaviour
                 Pain = 30;
             }
 
+            int attackLevel = 1;
+            if (FindObjectOfType<PlayerAttacker>() != null)
+            {
+                attackLevel = FindObjectOfType<PlayerAttacker>().Level;
+            }
             Instantiate(CurrentMapData.BackGround);
             Victim[] victims = FindObjectsOfType<Victim>();
             foreach (Victim victim in victims)
@@ -130,17 +139,19 @@ public class GameManager : MonoBehaviour
                 Destroy(victim.gameObject);
             }
             Bullet[] bullets = FindObjectsOfType<Bullet>();
-            foreach(Bullet b in bullets)
+            foreach (Bullet b in bullets)
             {
                 Destroy(b.gameObject);
             }
 
-            SpawnPlayer();
+            difficult += 1;
+            SpawnPlayer(attackLevel);
         }
     }
 
-    void SpawnPlayer()
+    void SpawnPlayer(int attackLevel)
     {
-        Instantiate(playerPrefab, new Vector2(0, -6), Quaternion.identity);
+        GameObject prefab = Instantiate(playerPrefab, new Vector2(0, -6), Quaternion.identity);
+        prefab.GetComponent<PlayerAttacker>().Level = attackLevel;
     }
 }

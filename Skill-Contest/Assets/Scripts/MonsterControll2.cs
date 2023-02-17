@@ -8,7 +8,7 @@ public class MonsterControll2 : MonsterControll
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,9 +16,9 @@ public class MonsterControll2 : MonsterControll
     {
         base.Update();
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if (timer <= 0)
         {
-            timer = Random.Range(1.5f, 2.5f);
+            timer = Random.Range(1.5f, 2.5f) * (5f / (5f + GameManager.difficult));
             UseAttack(0);
         }
     }

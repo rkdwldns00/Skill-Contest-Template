@@ -22,6 +22,10 @@ public class Mover : MonoBehaviour
         {
             speed *= 2f;
         }
+        if (CompareTag("Monster"))
+        {
+            speed *= (3f+GameManager.difficult) / 3;
+        }
 
         transform.position = (Vector2)transform.position + direction.normalized * speed * Time.deltaTime;
     }

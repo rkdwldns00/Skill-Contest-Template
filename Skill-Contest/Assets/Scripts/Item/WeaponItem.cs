@@ -6,6 +6,6 @@ public class WeaponItem : Item
 {
     protected override void Interaction(GameObject player)
     {
-        player.GetComponent<PlayerAttacker>().level += 1;
+        player.GetComponent<PlayerAttacker>().Level += 1;
     }
 }

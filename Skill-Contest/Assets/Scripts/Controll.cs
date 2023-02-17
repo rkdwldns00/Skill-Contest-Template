@@ -15,12 +15,18 @@ public abstract class Controll : MonoBehaviour
 
     protected void UseAttack(int index)
     {
-        attacker.UseAttack(index);
+        if (mover != null)
+        {
+            attacker.UseAttack(index);
+        }
     }
 
     protected void Move(Vector2 direction)
     {
-        mover.Move(direction);
+        if (mover != null)
+        {
+            mover.Move(direction);
+        }
     }
 
     protected void Move(float x,float y)

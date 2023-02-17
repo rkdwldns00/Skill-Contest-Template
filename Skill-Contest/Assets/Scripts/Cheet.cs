@@ -27,7 +27,7 @@ public class Cheet : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.F3))
         {
-            FindObjectOfType<PlayerAttacker>().level += 1;
+            FindObjectOfType<PlayerAttacker>().Level += 1;
         }
         else if (Input.GetKeyDown(KeyCode.F4))
         {

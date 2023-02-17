@@ -24,14 +24,13 @@ public class BossControll : Controll
     void Update()
     {
         slider.value = (float)victim.Hp / statManager.CharacterData.Hp;
-        if (timer < 3)
+        if (timer < 3f)
         {
             timer += Time.deltaTime;
             Move(Vector2.down);
         }
         else
         {
-            Debug.Log(n);
             n += Time.deltaTime;
             basicAttackCool -= Time.deltaTime;
             missileCool -= Time.deltaTime;

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7749e7de61198b449896c1e3b802284, type: 3}
   m_Name: Boss Data
   m_EditorClassIdentifier: 
-  hp: 50
-  damage: 10
-  score: 10
+  hp: 1500
+  damage: 30
+  score: 1000
   moveSpeed: 2
   attacks:
   - {fileID: 642939399871663985, guid: d398fde5aafa28349bda22da65ca6716, type: 3}
